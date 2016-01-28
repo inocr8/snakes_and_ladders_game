@@ -8,6 +8,10 @@ describe('Player', function(){
     var player = new Player('Euan');
     assert.equal('Euan', player.name); 
   });
+  it('should have inital position of 0', function(){
+    var player = new Player('Euan');
+    assert.equal(0, player.position);
+  });
 });
 
 describe('Game', function(){
