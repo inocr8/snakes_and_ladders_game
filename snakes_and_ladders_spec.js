@@ -96,6 +96,13 @@ describe('Game', function(){
     var player = game.currentPlayer();
     assert.equal(true, game.validRoll(player, roll));
   });
+  it('should check for a roll will fail if it goes beyond end of board', function(){
+    var player1 = new Player('Euan');
+    game.addPlayer(player1);
+    var roll = 150;
+    var player = game.currentPlayer();
+    assert.equal(false, game.validRoll(player, roll));
+  });
 });
 
 describe('Dice', function(){
