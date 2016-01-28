@@ -1,6 +1,6 @@
 var Player = function(name){
   this.name = name;
-  this.position = 1;
+  this.position = 0;
 };
 
 module.exports = Player;

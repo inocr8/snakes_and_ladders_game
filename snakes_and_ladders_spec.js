@@ -10,9 +10,9 @@ describe('Player', function(){
     var player = new Player('Euan');
     assert.equal('Euan', player.name); 
   });
-  it('should have inital position of 1', function(){
+  it('should have inital position of 0', function(){
     var player = new Player('Euan');
-    assert.equal(1, player.position);
+    assert.equal(0, player.position);
   });
 });
 
