@@ -15,6 +15,13 @@ Game.prototype = {
   movePlayer: function(player, position){
     player.position = position;
   },
+  updateCurrentPlayerIndex: function(){
+    if(this.currentPlayerIndex === this.players.length - 1) {
+      this.currentPlayerIndex = 0;
+    } else {
+      this.currentPlayerIndex++;
+    }
+  },
 };
 
 module.exports = Game;

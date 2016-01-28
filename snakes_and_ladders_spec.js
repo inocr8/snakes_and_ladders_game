@@ -56,19 +56,19 @@ describe('Game', function(){
     game.addPlayer(player1);
     var player2 = new Player('Sky');
     game.addPlayer(player2);
-    game.nextCurrentPlayerIndex();
+    game.updateCurrentPlayerIndex();
     assert.equal(1, game.currentPlayerIndex);
-    assert.equal(player2, game.currectPlayer());
+    assert.equal(player2, game.currentPlayer());
   });
   it('should be able to go back to the start of the player array', function(){
     var player1 = new Player('Euan');
     game.addPlayer(player1);
     var player2 = new Player('Sky');
     game.addPlayer(player2);
-    game.nextCurrentPlayerIndex();
-    game.nextCurrentPlayerIndex();
+    game.updateCurrentPlayerIndex();
+    game.updateCurrentPlayerIndex();
     assert.equal(0, game.currentPlayerIndex);
-    assert.equal(player1, game.currectPlayer());
+    assert.equal(player1, game.currentPlayer());
   });
 });
 
