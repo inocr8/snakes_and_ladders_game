@@ -19,7 +19,8 @@ describe('Player', function(){
 describe('Game', function(){
   beforeEach(function createGame(){
     dice = new Dice(6);
-    game = new Game('New Game', dice);
+    board = new Board(100);
+    game = new Game('New Game', dice, board);
   })
 
   it('should have a name', function(){
@@ -70,6 +71,14 @@ describe('Game', function(){
     game.updateCurrentPlayerIndex();
     assert.equal(0, game.currentPlayerIndex);
     assert.equal(player1, game.currentPlayer());
+  });
+  it('should be able to check for a winner', function(){
+    var player1 = new Player('Euan');
+    game.addPlayer(player1);
+    var player2 = new Player('Sky');
+    game.addPlayer(player2);
+    game.movePlayer(player1, 100);
+    assert.equal(true, game.hasWon);
   });
 });
 
