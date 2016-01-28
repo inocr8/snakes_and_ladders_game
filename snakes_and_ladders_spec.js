@@ -34,8 +34,8 @@ describe('Game', function(){
   it('should be able to move a player to a position', function(){
     var player = new Player('Euan');
     game.addPlayer(player);
-    movePlayer(player, 3);
-    assert.equal(player.position = position);
+    game.movePlayer(player, 3);
+    assert.equal(3, player.position);
   });
 });
 
