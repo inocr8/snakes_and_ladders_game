@@ -3,6 +3,7 @@ var assert = require('assert');
 var Player = require('./player');
 var Game = require('./game');
 var Dice = require('./dice');
+var Board = require('./board');
 
 describe('Player', function(){
   it('should have a name', function(){
@@ -83,3 +84,10 @@ describe('Dice', function(){
     assert.equal('number', typeof num);
   });
 });
+
+describe('Board', function(){
+  it('should have squares of a passed amount', function(){
+    var board = new Board(100);
+    assert.equal(100, board.squares);
+  })
+})
