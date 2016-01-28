@@ -103,6 +103,16 @@ describe('Game', function(){
     var newPosition = game.newPosition(game.currentPlayer(), roll);
     assert.equal(false, game.validPosition(newPosition));
   });
+  it('should be able to take a turn', function(){
+    var player1 = new Player('Euan');
+    game.addPlayer(player1);
+    var player2 = new Player('Sky');
+    game.addPlayer(player2);
+    while (!game.winner) {
+      game.takeTurn();
+    }
+    console.log(game);
+  });
 });
 
 describe('Dice', function(){

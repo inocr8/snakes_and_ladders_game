@@ -38,20 +38,19 @@ Game.prototype = {
   validPosition: function(position){
     return position <= this.board.squares;
   },
-  // takeTurn: function(){
-  //   var player = this.currentPlayer();
-  //   var roll = this.dice.roll();
-  //   var newPosition = this.newPosition(player, roll);
-  //   if (this.validPostion(newPosition)) {
-  //     this.movePlayer(player, newPosition);
-  //     if (this.hasWon()) {
-  //       this.setWinner();
-  //       return;
-  //     }
-  //   } else {
-  //     this.updateCurrentPlayerIndex();
-  //   }
-  // },
+  takeTurn: function(){
+    var player = this.currentPlayer();
+    var roll = this.dice.roll();
+    var newPosition = this.newPosition(player, roll);
+    if (this.validPosition(newPosition)) {
+      this.movePlayer(player, newPosition);
+      if (this.hasWon()) {
+        this.setWinner();
+        return;
+      }
+    }
+    this.updateCurrentPlayerIndex();
+  },
 };
 
 module.exports = Game;
