@@ -1,6 +1,7 @@
-var Game = function(name){
+var Game = function(name, dice){
   this.name = name;
   this.players = [];
+  this.dice = dice;
 };
 
 Game.prototype = {
