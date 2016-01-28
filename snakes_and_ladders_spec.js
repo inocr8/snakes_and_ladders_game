@@ -27,6 +27,9 @@ describe('Game', function(){
   it('should confirm the game array is empty at game start', function(){
     assert.deepEqual([], game.players);
   });
+  it('should have a dice when the game is created', function(){
+    assert.equal(dice, game.dice);
+  });
   it('should be able to add player to the game array', function(){
     var player = new Player('Euan');
     game.addPlayer(player);
@@ -48,8 +51,24 @@ describe('Game', function(){
     game.movePlayer(player, 3);
     assert.equal(3, player.position);
   });
-  it('should have a dice when the game is created', function(){
-    assert.equal(dice, game.dice);
+  it('should be able to update the current player to the next player', function(){
+    var player1 = new Player('Euan');
+    game.addPlayer(player1);
+    var player2 = new Player('Sky');
+    game.addPlayer(player2);
+    game.nextCurrentPlayerIndex();
+    assert.equal(1, game.currentPlayerIndex);
+    assert.equal(player2, game.currectPlayer());
+  });
+  it('should be able to go back to the start of the player array', function(){
+    var player1 = new Player('Euan');
+    game.addPlayer(player1);
+    var player2 = new Player('Sky');
+    game.addPlayer(player2);
+    game.nextCurrentPlayerIndex();
+    game.nextCurrentPlayerIndex();
+    assert.equal(0, game.currentPlayerIndex);
+    assert.equal(player1, game.currectPlayer());
   });
 });
 
