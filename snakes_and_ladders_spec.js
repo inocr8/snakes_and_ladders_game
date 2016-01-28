@@ -17,7 +17,8 @@ describe('Player', function(){
 
 describe('Game', function(){
   beforeEach(function createGame(){
-    game = new Game('New Game');
+    dice = new Dice(6);
+    game = new Game('New Game', dice);
   })
 
   it('should have a name', function(){
@@ -37,6 +38,9 @@ describe('Game', function(){
     game.movePlayer(player, 3);
     assert.equal(3, player.position);
   });
+  it('should have a dice when the game is created', function(){
+    assert.equal(dice, game.dice);
+  });
 });
 
 describe('Dice', function(){
@@ -48,5 +52,5 @@ describe('Dice', function(){
     var dice = new Dice(6);
     var num = dice.roll();
     assert.equal('number', typeof num);
-  })
+  });
 });
