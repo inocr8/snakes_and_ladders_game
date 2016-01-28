@@ -18,7 +18,7 @@ describe('Player', function(){
 describe('Game', function(){
   it('should have a name', function(){
     var game = new Game('New Game');
-      assert.equal('First Game', game.name);
+      assert.equal('New Game', game.name);
   });
   it('should confirm the game array is empty at game start', function(){
     var game = new Game('New Game');
