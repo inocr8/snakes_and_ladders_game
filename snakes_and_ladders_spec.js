@@ -54,6 +54,9 @@ describe('Game', function(){
   it('should have a dice when the game is created', function(){
     assert.equal(dice, game.dice);
   });
+  it('should have a number of moves set to 0 at start of game', function(){
+    assert.equal(0, game.moves);
+  });
   it('should be able to add player to the game array', function(){
     var player = new Player('Euan');
     game.addPlayer(player);
@@ -147,7 +150,7 @@ describe('Game', function(){
     var position = 18;
     assert.equal(false, game.hasSnake(position));
   });
-  it('should return snake or ladder exit postion', function(){
+  it('should return snake or ladder exit position', function(){
     var position = 4;
     var exitPosition = game.snakeOrLadderPosition(position);
     assert.equal(14, exitPosition);
