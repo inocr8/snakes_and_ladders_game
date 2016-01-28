@@ -32,6 +32,16 @@ describe('Game', function(){
     game.addPlayer(player);
     assert.equal('Euan', game.players[0].name);
   });
+  it('should have current player index of 0', function(){
+    assert.equal(0, game.currentPlayerIndex);
+  });
+  it('should have current player', function(){
+    var player1 = new Player('Euan');
+    game.addPlayer(player1);
+    var player2 = new Player('Sky');
+    game.addPlayer(player2);
+    assert.equal(player1, game.currentPlayer());
+  });
   it('should be able to move a player to a position', function(){
     var player = new Player('Euan');
     game.addPlayer(player);
