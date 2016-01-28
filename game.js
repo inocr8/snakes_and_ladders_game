@@ -5,6 +5,7 @@ var Game = function(name, dice, board){
   this.dice = dice;
   this.board = board;
   this.winner = undefined;
+  this.moves = 0;
 };
 
 Game.prototype = {
@@ -39,6 +40,7 @@ Game.prototype = {
     return position <= this.board.squares;
   },
   takeTurn: function(){
+    this.moves++;
     var player = this.currentPlayer();
     var roll = this.dice.roll();
     var newPosition = this.newPosition(player, roll);
