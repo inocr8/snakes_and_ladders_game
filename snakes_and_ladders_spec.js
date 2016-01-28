@@ -77,7 +77,7 @@ describe('Game', function(){
     game.addPlayer(player1);
     var player2 = new Player('Sky');
     game.addPlayer(player2);
-    game.movePlayer(player1, 100);
+    game.movePlayer(player1, 99);
     assert.equal(true, game.hasWon());
   });
   it('should be able to return a winner', function(){
@@ -85,9 +85,16 @@ describe('Game', function(){
     game.addPlayer(player1);
     var player2 = new Player('Sky');
     game.addPlayer(player2);
-    game.movePlayer(player1, 100);
+    game.movePlayer(player1, 99);
     game.setWinner();
     assert.equal(player1, game.winner);
+  });
+  it('should check for a valid roll that doesn\'t go beyond end of board', function(){
+    var player1 = new Player('Euan');
+    game.addPlayer(player1);
+    var roll = game.dice.roll();
+    var player = game.currentPlayer();
+    assert.equal(true, game.validRoll(player, roll));
   });
 });
 
@@ -106,6 +113,6 @@ describe('Dice', function(){
 describe('Board', function(){
   it('should have squares of a passed amount', function(){
     var board = new Board(100);
-    assert.equal(100, board.squares);
+    assert.equal(99, board.squares);
   });
 });

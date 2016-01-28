@@ -32,6 +32,14 @@ Game.prototype = {
       this.winner = this.currentPlayer();
     }
   },
+  // takeTurn: function(){
+  //   var moves = this.dice.roll();
+  //   var newPosition = this.currentPlayer().position + moves;
+  //   this.movePlayer(this.currentPlayer(), newPosition);
+  // },
+  validRoll: function(player, roll){
+    return player.position + roll <= this.board.squares;
+  },
 };
 
 module.exports = Game;
