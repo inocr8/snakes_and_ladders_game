@@ -10,9 +10,9 @@ describe('Player', function(){
     var player = new Player('Euan');
     assert.equal('Euan', player.name); 
   });
-  it('should have inital position of 0', function(){
+  it('should have inital position of 1', function(){
     var player = new Player('Euan');
-    assert.equal(0, player.position);
+    assert.equal(1, player.position);
   });
 });
 
@@ -50,8 +50,8 @@ describe('Game', function(){
   it('should be able to move a player to a position', function(){
     var player = new Player('Euan');
     game.addPlayer(player);
-    game.movePlayer(player, 3);
-    assert.equal(3, player.position);
+    game.movePlayer(player, 4);
+    assert.equal(4, player.position);
   });
   it('should be able to update the current player to the next player', function(){
     var player1 = new Player('Euan');
@@ -77,7 +77,7 @@ describe('Game', function(){
     game.addPlayer(player1);
     var player2 = new Player('Sky');
     game.addPlayer(player2);
-    game.movePlayer(player1, 99);
+    game.movePlayer(player1, 100);
     assert.equal(true, game.hasWon());
   });
   it('should be able to return a winner', function(){
@@ -85,7 +85,7 @@ describe('Game', function(){
     game.addPlayer(player1);
     var player2 = new Player('Sky');
     game.addPlayer(player2);
-    game.movePlayer(player1, 99);
+    game.movePlayer(player1, 100);
     game.setWinner();
     assert.equal(player1, game.winner);
   });
@@ -130,6 +130,6 @@ describe('Dice', function(){
 describe('Board', function(){
   it('should have squares of a passed amount', function(){
     var board = new Board(100);
-    assert.equal(99, board.squares);
+    assert.equal(100, board.squares);
   });
 });
