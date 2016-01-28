@@ -133,24 +133,37 @@ describe('Game', function(){
     game.addPlayer(player1);
     var player2 = new Player('Sky');
     game.addPlayer(player2);
+    var player3 = new Player('Evelyn');
+    game.addPlayer(player3);
+    var player4 = new Player('Andy');
+    game.addPlayer(player4);
     while (!game.winner) {
+      console.log(game.currentPlayer().name + " starts on " + game.currentPlayer().position);
       game.takeTurn();
+      console.log('\n');
     }
+    console.log('Winner is ' + game.winner.name + '!\n');
     console.log(game);
   });
   it('should be able to check for ladder/snake', function(){
+    var player1 = new Player('Euan');
+    game.addPlayer(player1);
     var position = 4;
     assert.equal(true, game.hasLadder(position));
     var position = 17;
     assert.equal(true, game.hasSnake(position));
   });
   it('should be able to check for ladder/snake, fail', function(){
+    var player1 = new Player('Euan');
+    game.addPlayer(player1);
     var position = 5;
     assert.equal(false, game.hasLadder(position));
     var position = 18;
     assert.equal(false, game.hasSnake(position));
   });
   it('should return snake or ladder exit position', function(){
+    var player1 = new Player('Euan');
+    game.addPlayer(player1);
     var position = 4;
     var exitPosition = game.snakeOrLadderPosition(position);
     assert.equal(14, exitPosition);

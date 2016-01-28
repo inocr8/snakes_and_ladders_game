@@ -39,21 +39,32 @@ Game.prototype = {
   validPosition: function(position){
     return position <= this.board.squares;
   },
+
+
+
+
   takeTurn: function(){
     this.moves++;
     var player = this.currentPlayer();
     var roll = this.dice.roll();
+    console.log(this.currentPlayer().name + ' rolls a ' + roll);
     var newPosition = this.newPosition(player, roll);
     if (this.validPosition(newPosition)) {
       newPosition = this.snakeOrLadderPosition(newPosition);
       this.movePlayer(player, newPosition);
       if (this.hasWon()) {
         this.setWinner();
+        console.log(this.currentPlayer().name + ' ends on ' + this.currentPlayer().position);
         return;
       }
     }
+    console.log(this.currentPlayer().name + ' ends on ' + this.currentPlayer().position);
     this.updateCurrentPlayerIndex();
   },
+
+
+
+  
   snakeOrLadderPosition: function(position){
     if (this.hasSnake(position) || this.hasLadder(position)) {
       position = this.board.snakes[position] || this.board.ladders[position];
@@ -62,12 +73,14 @@ Game.prototype = {
   },
   hasLadder: function(position){
     if (this.board.ladders[position]){
+      console.log(this.currentPlayer().name + ' hits a ladder at square ' + position + '!');
       return true;
     }
     return false;
   },
   hasSnake: function(position){
     if (this.board.snakes[position]){
+      console.log(this.currentPlayer().name + ' hits a snake at square ' + position + '!');
       return true;
     }
     return false;
