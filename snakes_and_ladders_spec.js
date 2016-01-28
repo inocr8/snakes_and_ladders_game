@@ -27,4 +27,9 @@ describe('Dice', function(){
     var dice = new Dice(6);
     assert.equal(6, dice.sides);
   });
+  it('should be able to roll a number', function(){
+    var dice = new Dice(6);
+    var num = dice.roll;
+    assert.equal('number', typeof num);
+  })
 });
