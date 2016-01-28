@@ -78,7 +78,7 @@ describe('Game', function(){
     var player2 = new Player('Sky');
     game.addPlayer(player2);
     game.movePlayer(player1, 100);
-    assert.equal(true, game.hasWon);
+    assert.equal(true, game.hasWon());
   });
 });
 

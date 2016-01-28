@@ -1,8 +1,9 @@
-var Game = function(name, dice){
+var Game = function(name, dice, board){
   this.name = name;
   this.players = [];
   this.currentPlayerIndex = 0;
   this.dice = dice;
+  this.board = board;
 };
 
 Game.prototype = {
@@ -21,6 +22,9 @@ Game.prototype = {
     } else {
       this.currentPlayerIndex++;
     }
+  },
+  hasWon: function(){
+    return this.currentPlayer().position === this.board.squares;
   },
 };
 
