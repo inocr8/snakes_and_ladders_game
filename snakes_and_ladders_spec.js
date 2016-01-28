@@ -135,7 +135,6 @@ describe('Game', function(){
     }
     console.log(game);
   });
-
   it('should be able to check for ladder/snake', function(){
     var position = 4;
     assert.equal(true, game.hasLadder(position));
@@ -147,6 +146,14 @@ describe('Game', function(){
     assert.equal(false, game.hasLadder(position));
     var position = 18;
     assert.equal(false, game.hasSnake(position));
+  });
+  it('should return snake or ladder exit postion', function(){
+    var position = 4;
+    var exitPosition = game.snakeOrLadderPosition(position);
+    assert.equal(14, exitPosition);
+    var position = 17;
+    var exitPosition = game.snakeOrLadderPosition(position);
+    assert.equal(7, exitPosition);
   });
 });
 
