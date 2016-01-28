@@ -86,7 +86,8 @@ describe('Game', function(){
     var player2 = new Player('Sky');
     game.addPlayer(player2);
     game.movePlayer(player1, 100);
-    assert.equal(player1, game.winner());
+    game.setWinner();
+    assert.equal(player1, game.winner);
   });
 });
 

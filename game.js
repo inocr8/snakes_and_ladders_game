@@ -4,6 +4,7 @@ var Game = function(name, dice, board){
   this.currentPlayerIndex = 0;
   this.dice = dice;
   this.board = board;
+  this.winner = undefined;
 };
 
 Game.prototype = {
@@ -17,7 +18,7 @@ Game.prototype = {
     player.position = position;
   },
   updateCurrentPlayerIndex: function(){
-    if(this.currentPlayerIndex === this.players.length - 1) {
+    if(this.currentPlayerIndex === this.players.length - 1){
       this.currentPlayerIndex = 0;
     } else {
       this.currentPlayerIndex++;
@@ -25,6 +26,11 @@ Game.prototype = {
   },
   hasWon: function(){
     return this.currentPlayer().position === this.board.squares;
+  },
+  setWinner: function(){
+    if(this.hasWon()){
+      this.winner = this.currentPlayer();
+    }
   },
 };
 
