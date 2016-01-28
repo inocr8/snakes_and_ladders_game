@@ -31,6 +31,12 @@ describe('Game', function(){
     game.addPlayer(player);
     assert.equal('Euan', game.players[0].name);
   });
+  it('should be able to move a player to a position', function(){
+    var player = new Player('Euan');
+    game.addPlayer(player);
+    movePlayer(player, 3);
+    assert.equal(player.position = position);
+  });
 });
 
 describe('Dice', function(){
