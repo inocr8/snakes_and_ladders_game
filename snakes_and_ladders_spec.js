@@ -80,6 +80,14 @@ describe('Game', function(){
     game.movePlayer(player1, 100);
     assert.equal(true, game.hasWon());
   });
+  it('should be able to return a winner', function(){
+    var player1 = new Player('Euan');
+    game.addPlayer(player1);
+    var player2 = new Player('Sky');
+    game.addPlayer(player2);
+    game.movePlayer(player1, 100);
+    assert.equal(player1, game.winner());
+  });
 });
 
 describe('Dice', function(){
