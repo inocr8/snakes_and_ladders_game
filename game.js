@@ -45,6 +45,7 @@ Game.prototype = {
     var roll = this.dice.roll();
     var newPosition = this.newPosition(player, roll);
     if (this.validPosition(newPosition)) {
+      newPosition = this.snakeOrLadderPosition(newPosition);
       this.movePlayer(player, newPosition);
       if (this.hasWon()) {
         this.setWinner();
@@ -53,14 +54,20 @@ Game.prototype = {
     }
     this.updateCurrentPlayerIndex();
   },
+  snakeOrLadderPosition: function(position){
+    if (this.hasSnake(position) || this.hasLadder(position)) {
+      position = this.snakes[position] || this.ladders[position];
+    }
+    return position;
+  },
   hasLadder: function(position){
-    if (this.ladders[position.toString()]){
+    if (this.ladders[position]){
       return true;
     }
     return false;
   },
   hasSnake: function(position){
-    if (this.snakes[position.toString()]){
+    if (this.snakes[position]){
       return true;
     }
     return false;
