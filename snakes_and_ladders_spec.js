@@ -2,7 +2,7 @@ var assert = require('assert');
 
 var Player = require('./player');
 var Game = require('./game');
-var Dice = require('.dice');
+var Dice = require('./dice');
 
 describe('Player', function(){
   it('should have a name', function(){
