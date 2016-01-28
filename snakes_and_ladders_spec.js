@@ -16,16 +16,17 @@ describe('Player', function(){
 });
 
 describe('Game', function(){
+  beforeEach(function createGame(){
+    game = new Game('New Game');
+  })
+
   it('should have a name', function(){
-    var game = new Game('New Game');
       assert.equal('New Game', game.name);
   });
   it('should confirm the game array is empty at game start', function(){
-    var game = new Game('New Game');
     assert.deepEqual([], game.players);
   });
   it('should be able to add player to the game array', function(){
-    var game = new Game('New Game');
     var player = new Player('Euan');
     game.addPlayer(player);
     assert.equal('Euan', game.players[0].name);
