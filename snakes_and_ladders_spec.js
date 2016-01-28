@@ -89,5 +89,5 @@ describe('Board', function(){
   it('should have squares of a passed amount', function(){
     var board = new Board(100);
     assert.equal(100, board.squares);
-  })
-})
+  });
+});
