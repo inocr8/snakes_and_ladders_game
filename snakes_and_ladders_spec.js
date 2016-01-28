@@ -5,6 +5,28 @@ var Game = require('./game');
 var Dice = require('./dice');
 var Board = require('./board');
 
+var ladders = {
+  4: 14,
+  9: 31,
+  20: 38,
+  28: 84,
+  40: 59,
+  51: 67,
+  63: 81,
+  71: 91
+};
+
+var snakes = {
+  17: 7,
+  54: 34,
+  62: 19,
+  64: 60,
+  87: 24,
+  93: 73,
+  95: 75,
+  99: 78
+};
+
 describe('Player', function(){
   it('should have a name', function(){
     var player = new Player('Euan');
@@ -20,7 +42,7 @@ describe('Game', function(){
   beforeEach(function createGame(){
     dice = new Dice(6);
     board = new Board(100);
-    game = new Game('New Game', dice, board);
+    game = new Game('New Game', dice, board, snakes, ladders);
   })
 
   it('should have a name', function(){
@@ -112,6 +134,19 @@ describe('Game', function(){
       game.takeTurn();
     }
     console.log(game);
+  });
+
+  it('should be able to check for ladder/snake', function(){
+    var position = 4;
+    assert.equal(true, game.hasLadder(position));
+    var position = 17;
+    assert.equal(true, game.hasSnake(position));
+  });
+  it('should be able to check for ladder/snake, fail', function(){
+    var position = 5;
+    assert.equal(false, game.hasLadder(position));
+    var position = 18;
+    assert.equal(false, game.hasSnake(position));
   });
 });
 
