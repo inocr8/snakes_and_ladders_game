@@ -32,14 +32,26 @@ Game.prototype = {
       this.winner = this.currentPlayer();
     }
   },
-  // takeTurn: function(){
-  //   var moves = this.dice.roll();
-  //   var newPosition = this.currentPlayer().position + moves;
-  //   this.movePlayer(this.currentPlayer(), newPosition);
-  // },
-  validRoll: function(player, roll){
-    return player.position + roll <= this.board.squares;
+  newPosition: function(player, roll){
+    return player.position + roll;
   },
+  validPosition: function(position){
+    return position <= this.board.squares;
+  },
+  // takeTurn: function(){
+  //   var player = this.currentPlayer();
+  //   var roll = this.dice.roll();
+  //   var newPosition = this.newPosition(player, roll);
+  //   if (this.validPostion(newPosition)) {
+  //     this.movePlayer(player, newPosition);
+  //     if (this.hasWon()) {
+  //       this.setWinner();
+  //       return;
+  //     }
+  //   } else {
+  //     this.updateCurrentPlayerIndex();
+  //   }
+  // },
 };
 
 module.exports = Game;
