@@ -1,12 +1,10 @@
-var Game = function(name, dice, board, snakes, ladders){
+var Game = function(name, dice, board){
   this.name = name;
   this.players = [];
   this.currentPlayerIndex = 0;
   this.dice = dice;
   this.board = board;
   this.winner = undefined;
-  this.ladders = ladders;
-  this.snakes = snakes;
 };
 
 Game.prototype = {
@@ -56,18 +54,18 @@ Game.prototype = {
   },
   snakeOrLadderPosition: function(position){
     if (this.hasSnake(position) || this.hasLadder(position)) {
-      position = this.snakes[position] || this.ladders[position];
+      position = this.board.snakes[position] || this.board.ladders[position];
     }
     return position;
   },
   hasLadder: function(position){
-    if (this.ladders[position]){
+    if (this.board.ladders[position]){
       return true;
     }
     return false;
   },
   hasSnake: function(position){
-    if (this.snakes[position]){
+    if (this.board.snakes[position]){
       return true;
     }
     return false;

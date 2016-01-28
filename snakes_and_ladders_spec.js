@@ -41,8 +41,8 @@ describe('Player', function(){
 describe('Game', function(){
   beforeEach(function createGame(){
     dice = new Dice(6);
-    board = new Board(100);
-    game = new Game('New Game', dice, board, snakes, ladders);
+    board = new Board(100, snakes, ladders);
+    game = new Game('New Game', dice, board);
   })
 
   it('should have a name', function(){
